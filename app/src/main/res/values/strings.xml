@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Data Usage Analyzer</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="DefaultPrompt">Select a Application</string>
+    <string name="title_activity_network_data_details">NetworkDataDetails</string>
+    <string name="title_second_activity">Data Usage Details</string>
+    <string name="AutoText">Search For the Apps...</string>
+    <string name="title_third_activity">Usage Details</string>
+
+</resources>

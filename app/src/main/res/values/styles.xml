@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="SpinnerDropdown" parent="android:style/Widget.ListView.DropDown">
+        <item name="android:background">#0BC6A0</item>
+        <item name="android:divider">#000000</item>
+        <item name="android:dividerHeight">1dp</item>
+        <item name="android:listSelector">#00ff00</item>
+    </style>
+
+</resources>

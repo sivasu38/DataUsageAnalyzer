@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@drawable/fragment_border">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Usage For Previous Session (in MB)"
+        android:id="@+id/textView"
+        android:layout_marginLeft="10dp"
+        android:scrollHorizontally="false"
+        android:minLines="2"
+        android:layout_toLeftOf="@+id/textView13"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total App&apos;s Data Usage (in MB)"
+        android:id="@+id/textView9"
+        android:minLines="2"
+        android:scrollHorizontally="false"
+        android:layout_weight="1"
+        android:layout_below="@+id/textView"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_toLeftOf="@+id/textView14"
+        android:layout_marginTop="20dp"/>
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Total Mobile&apos;s Data Usage (in MB)"-->
+        <!--android:scrollHorizontally="false"-->
+        <!--android:minLines="2"-->
+        <!--android:id="@+id/textView10"-->
+        <!--android:layout_weight="1"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_below="@+id/textView9"-->
+        <!--android:layout_alignLeft="@+id/textView9"-->
+        <!--android:layout_alignStart="@+id/textView9" />-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data Usage Details for"
+        android:id="@+id/textView11"
+        android:layout_marginLeft="30dp"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView12"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView11"
+        android:layout_toEndOf="@+id/textView11" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView13"
+        android:layout_weight="2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView14"
+        android:layout_weight="2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textView9"
+        android:layout_marginRight="10dp"/>
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/textView15"-->
+        <!--android:layout_alignTop="@+id/textView10"-->
+        <!--android:layout_alignLeft="@+id/textView14"-->
+        <!--android:layout_alignStart="@+id/textView14" />-->
+</RelativeLayout>
