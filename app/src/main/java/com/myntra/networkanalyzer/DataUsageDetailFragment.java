@@ -37,11 +37,16 @@ public class DataUsageDetailFragment extends Fragment {
     DecimalFormat df;
     public boolean compareFlag;
 
-    public DataUsageDetailFragment(boolean compareFlag,int uid,String appNameValue)
-    {
-        this.compareFlag=compareFlag;
-        this.uid=uid;
-        this.appNameValue=appNameValue;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        sharedfile = getActivity().getSharedPreferences(PREFS_NAME, 0);
+        df= new DecimalFormat("#.##");
+        compareFlag = getArguments().getBoolean("compareFlag");
+        uid=getArguments().getInt("UID1");
+        appNameValue=getArguments().getString("appNameValue1");
+
+
     }
 
     @Nullable
@@ -53,14 +58,6 @@ public class DataUsageDetailFragment extends Fragment {
         totalDataUsageofApp = (TextView)rootView.findViewById(R.id.textView14);
 //        totalDataUsageofMobile = (TextView)rootView.findViewById(R.id.textView15);
         return rootView;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        sharedfile = getActivity().getSharedPreferences(PREFS_NAME, 0);
-        df= new DecimalFormat("#.##");
-
     }
 
     public void setAppName(String appName)
@@ -92,12 +89,8 @@ public class DataUsageDetailFragment extends Fragment {
         }
         catch (Exception e){
         }
-        receivedDataUsage = ((TrafficStats.getUidRxBytes(uid))/MEGABYTE)+((TrafficStats.getUidTxBytes(uid))/MEGABYTE);
-        totalDataUsage = ((TrafficStats.getTotalRxBytes())/MEGABYTE)+((TrafficStats.getTotalTxBytes())/MEGABYTE);
-        if(isNegative(receivedDataUsage))
-        {
-            receivedDataUsage=0.0;
-        }
+        receivedDataUsage = DataUsageUtils.getDataUsageForApp(uid);
+        totalDataUsage = DataUsageUtils.getTotalUsage();
         totalDataUsageofApp.setText(df.format(receivedDataUsage));
 //        totalDataUsageofMobile.setText(df.format(totalDataUsage));
         appName.setText(appNameValue);

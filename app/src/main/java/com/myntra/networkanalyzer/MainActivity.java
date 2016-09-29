@@ -76,7 +76,7 @@ public class MainActivity extends ActionBarActivity implements IClickListener,IR
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                if(charSequence.toString()!=null) {
+                if(charSequence.toString()!=null && adapter != null) {
                     adapter.getFilter().filter(charSequence);
                 }
             }

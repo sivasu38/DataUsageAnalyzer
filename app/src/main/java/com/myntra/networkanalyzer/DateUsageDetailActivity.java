@@ -37,15 +37,26 @@ public class DateUsageDetailActivity extends ActionBarActivity {
         uid1 = (int) bundle.get("UID1");
         appNameValue1=bundle.getString("appName1");
 
+
         if(savedInstanceState==null) {
-            dataUsageDetailFragment1 = new DataUsageDetailFragment(false, uid1, appNameValue1);
+            Bundle bundlenew1 = new Bundle();
+            bundlenew1.putBoolean("compareFlag",false);
+            bundlenew1.putInt("uid1",uid1);
+            bundlenew1.putString("appNameValue1",appNameValue1);
+            dataUsageDetailFragment1 = new DataUsageDetailFragment();
+            dataUsageDetailFragment1.setArguments(bundlenew1);
             fragmentManager = getFragmentManager();
             fragmentTransaction = fragmentManager.beginTransaction().add(R.id.content1, dataUsageDetailFragment1);
             fragmentTransaction.commit();
             if (compareFlag) {
                 uid2 = (int) bundle.get("UID2");
                 appNameValue2 = bundle.getString("appName2");
-                dataUsageDetailFragment2 = new DataUsageDetailFragment(false, uid2, appNameValue2);
+                Bundle bundlenew2 = new Bundle();
+                bundlenew2.putBoolean("compareFlag",false);
+                bundlenew2.putInt("uid1",uid2);
+                bundlenew2.putString("appNameValue1",appNameValue2);
+                dataUsageDetailFragment2 = new DataUsageDetailFragment();
+                dataUsageDetailFragment2.setArguments(bundlenew2);
                 fragmentTransaction = fragmentManager.beginTransaction().add(R.id.content2, dataUsageDetailFragment2);
                 fragmentTransaction.commit();
             }
