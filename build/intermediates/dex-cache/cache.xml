@@ -2,53 +2,116 @@
 <items version="2" >
 
     <item
-        jar="/Users/c.sivasubramanian/Documents/adt-bundle-mac-x86_64-20140702/sdk/extras/android/m2repository/com/android/support/support-annotations/22.1.0/support-annotations-22.1.0.jar"
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-web/2.2.2/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="281bc6c58ecb3644c23fbc5ee0452019f67b4d5d">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/support-annotations-22.1.0-69e8c44127c836855c9f0bc8793e18e14db86a30.jar" />
+        revision="23.0.1"
+        sha1="8b15a3d5c69b57f385cf1f26609d460375dc0ad8">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test.espresso-espresso-web-2.2.2_41cad241607a28bbff4eaf8feb045c218f418624.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/xyz.danoz/recyclerviewfastscroller/0.1.3/classes.jar"
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test/exposed-instrumentation-api-publish/0.5/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="752bfaeaf44b9c4b63c98ceca421348a20ff10be">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/classes-2a9bba4078a3abfa342a48fdf4bacbdeabc1f8e7.jar" />
+        revision="23.0.1"
+        sha1="905f3e63973d47fedf2d945fa31d8c0f0c98816e">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test-exposed-instrumentation-api-publish-0.5_bc34b1f9dafcc97ad6cffbe90b895e92fadfb8dc.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/libs/internal_impl-22.1.0.jar"
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-contrib/2.2.2/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="025cb89f2896c63200ff4c2e6c467a95691d880a">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/internal_impl-22.1.0-bca56de23605f1b0e594eb679dab4b266fcf28da.jar" />
+        revision="23.0.1"
+        sha1="56576e0b04aae5e9756bf6e791f74b5e3850ac03">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test.espresso-espresso-contrib-2.2.2_c733f564ef71c4d9bdc1e1b6bce889e4c9640c7f.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.1.0/classes.jar"
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test/runner/0.5/jars/classes.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="80434c45861675a57d690fba5ca31c3d55c89489">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/classes-f27bc88cd2cc9fb1e21d6b34ade601f82054533f.jar" />
+        revision="23.0.1"
+        sha1="796f9229948e907471c5595fbe94655ccf03ff73">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test-runner-0.5_d6d2ccea074a1dede6a4adf73bb94c8c1a6676f5.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/21.0.3/classes.jar"
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/com.squareup/javawriter/2.1.1/67ff45d9ae02e583d0f9b3432a5ebbe05c30c966/javawriter-2.1.1.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="00b0b7233e1ec64acebfac40d4983d32d4712426">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/classes-26dec478f8d7f3a6ae105e2111321873d5d9f74d.jar" />
+        revision="23.0.1"
+        sha1="67ff45d9ae02e583d0f9b3432a5ebbe05c30c966">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/javawriter-2.1.1_80fa2d675f6324e36567162428149aa0b2eac52f.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.0/classes.jar"
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="eeebabdfd8203f6ab639ccea4ffa1f20e1adee3a">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/classes-66f425921707e037e38ec4b69919493864507790.jar" />
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/javax.inject-1_8b95ce7595dccb55fd34d7810b66d67180258c95.jar" />
     </item>
     <item
-        jar="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/com.google.android.apps.common.testing.accessibility.framework/accessibility-test-framework/2.0/7837f95bdff9f797003454247fef02b78d49ae75/accessibility-test-framework-2.0.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/NetworkAnalyzer/app/build/intermediates/pre-dexed/debug/classes-a3e3ac0f68c84f9770ce561e716fd162fb7be7fe.jar" />
+        revision="23.0.1"
+        sha1="7837f95bdff9f797003454247fef02b78d49ae75">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/accessibility-test-framework-2.0_f56d069bbd8dc7aa967c760e6c2a54f14234cdcf.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-core/2.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d115b0e9e1501135fe91254ba884fcbd83d374c0">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test.espresso-espresso-core-2.2.2_336cd13e2c2d5892b394a127d7f234ae80dbd801.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/javax.annotation/javax.annotation-api/1.2/479c1e06db31c432330183f5cae684163f186146/javax.annotation-api-1.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="479c1e06db31c432330183f5cae684163f186146">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/javax.annotation-api-1.2_34354b1d6576527f53edf75e7ca1ba2621fdd5f7.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test/rules/0.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7e11799d8a26bfa5d48acafe012ee5545b9bf468">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test-rules-0.5_a58ca55c14445d8d1b2771d174445833812f9640.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4785a3c21320980282f9f33d0d1264a69040538f">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/hamcrest-library-1.3_4e5f7e42ec139040adda0863fc292fbf96181207.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/jsr305-2.0.1_c02e229af22198615f729eaaa7191eb5a5d54989.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-idling-resource/2.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a890ee8445927649d9ed50f625a315d8758688be">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test.espresso-espresso-idling-resource-2.2.2_3b770d6cabffc208f7673add9b2b44cb03ddaa48.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-integration/1.3/5de0c73fef18917cd85d0ab70bb23818685e4dfd/hamcrest-integration-1.3.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5de0c73fef18917cd85d0ab70bb23818685e4dfd">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/hamcrest-integration-1.3_9314e53d64347719d9a13b3af12b7737c4e17f52.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/exploded-aar/com.android.support.test.espresso/espresso-intents/2.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="efc9e293447db1929eb3853a3f83e8f46a957436">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/com.android.support.test.espresso-espresso-intents-2.2.2_a5ee8c23d44c73c1e770d7eb3886dac9c113b637.jar" />
+    </item>
+    <item
+        jar="/Users/c.sivasubramanian/.gradle/caches/modules-2/files-2.1/org.ccil.cowan.tagsoup/tagsoup/1.2/639fd364750d7363c85797dc944b4a80f78fa684/tagsoup-1.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="639fd364750d7363c85797dc944b4a80f78fa684">
+        <dex dex="/Users/c.sivasubramanian/AndroidStudioProjects/DataUsageAnalyzer/app/build/intermediates/pre-dexed/androidTest/debug/tagsoup-1.2_0d919d7464b9d56b5d6faf3cddfcdb6840a9325d.jar" />
     </item>
 
 </items>

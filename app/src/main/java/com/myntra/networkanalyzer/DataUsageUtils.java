@@ -9,27 +9,18 @@ public class DataUsageUtils {
 
     private static final double  MEGABYTE = 1024 * 1024;
 
-    public static double getDataUsageForApp(int uid)
+    public double getDataUsageForApp(int uid)
     {
         double dataBytes = (TrafficStats.getUidRxBytes(uid))+(TrafficStats.getUidTxBytes(uid));
         dataBytes = getDataBytesinMB(dataBytes);
         return dataBytes;
     }
 
-    public static double getDataBytesinMB(double dataBytes) {
-        double finalBytes;
-        if(isNegative(dataBytes))
-        {
-            finalBytes=0.0;
-        }
-        else
-        {
-            finalBytes=dataBytes/MEGABYTE;
-        }
-        return finalBytes;
+    public double getDataBytesinMB(double dataBytes) {
+        return (isNegative(dataBytes)? 0.0:dataBytes/MEGABYTE);
     }
 
-    public static double getTotalUsage()
+    public double getTotalUsage()
     {
         double dataBytes = (TrafficStats.getTotalRxBytes())+(TrafficStats.getTotalTxBytes());
         dataBytes = getDataBytesinMB(dataBytes);

@@ -36,10 +36,12 @@ public class DataUsageDetailFragment extends Fragment {
     public SharedPreferences.Editor editor;
     DecimalFormat df;
     public boolean compareFlag;
+    public DataUsageUtils dataUsageUtils;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dataUsageUtils = new DataUsageUtils();
         sharedfile = getActivity().getSharedPreferences(PREFS_NAME, 0);
         df= new DecimalFormat("#.##");
         compareFlag = getArguments().getBoolean("compareFlag");
@@ -89,8 +91,8 @@ public class DataUsageDetailFragment extends Fragment {
         }
         catch (Exception e){
         }
-        receivedDataUsage = DataUsageUtils.getDataUsageForApp(uid);
-        totalDataUsage = DataUsageUtils.getTotalUsage();
+        receivedDataUsage = dataUsageUtils.getDataUsageForApp(uid);
+        totalDataUsage = dataUsageUtils.getTotalUsage();
         totalDataUsageofApp.setText(df.format(receivedDataUsage));
 //        totalDataUsageofMobile.setText(df.format(totalDataUsage));
         appName.setText(appNameValue);
