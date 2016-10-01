@@ -17,7 +17,7 @@ public class DataUsageUtils {
     }
 
     public double getDataBytesinMB(double dataBytes) {
-        return (isNegative(dataBytes)? 0.0:dataBytes/MEGABYTE);
+        return Math.max(0.0,dataBytes/MEGABYTE);
     }
 
     public double getTotalUsage()
@@ -26,10 +26,5 @@ public class DataUsageUtils {
         dataBytes = getDataBytesinMB(dataBytes);
         return dataBytes;
     }
-
-    public static boolean isNegative(double d) {
-        return Double.compare(d, 0.0) < 0;
-    }
-
-
+    
 }
