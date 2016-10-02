@@ -1,6 +1,5 @@
 package com.myntra.networkanalyzer;
 
-import android.content.Context;
 import android.support.test.espresso.Espresso;
 import android.support.test.espresso.IdlingPolicies;
 import android.support.test.espresso.IdlingResource;
@@ -18,21 +17,14 @@ import org.junit.runner.RunWith;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by c.sivasubramanian on 01/10/16.
- */
-
 @RunWith(AndroidJUnit4.class)
 public class EspressoTests {
-
-    public IdlingResource idlingResource;
-
     @Rule
     public ActivityTestRule<MainActivity> mainActivity = new ActivityTestRule<>(MainActivity.class);
 
 
     @Before
-    public void setTimeout() throws Exception {
+    public void setTimeout() {
 
         IdlingPolicies.setMasterPolicyTimeout(120, TimeUnit.SECONDS);
         IdlingPolicies.setIdlingResourceTimeout(120, TimeUnit.SECONDS);
@@ -40,7 +32,7 @@ public class EspressoTests {
 
     @Test
     public void checkDataUsageActivityTest() {
-        idlingResource = new ElapsedTimeIdlingResource(60);
+        IdlingResource idlingResource = new ElapsedTimeIdlingResource(60);
         Espresso.registerIdlingResources(idlingResource);
         Espresso.onView(ViewMatchers.withId(R.id.editText6)).check(ViewAssertions.matches(ViewMatchers.isDisplayed())).perform(ViewActions.typeText("Myntra"));
         Espresso.onView((ViewMatchers.withId(R.id.recycler_view))).perform(

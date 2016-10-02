@@ -2,10 +2,7 @@ package com.myntra.networkanalyzer;
 
 import android.support.test.espresso.IdlingResource;
 
-/**
- * Created by c.sivasubramanian on 01/10/16.
- */
-public class ElapsedTimeIdlingResource implements IdlingResource{
+class ElapsedTimeIdlingResource implements IdlingResource{
 
     private final long startTime;
     private final long waitingTime;
