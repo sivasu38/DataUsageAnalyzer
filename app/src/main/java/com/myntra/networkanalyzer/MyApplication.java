@@ -2,9 +2,6 @@ package com.myntra.networkanalyzer;
 
 import android.app.Application;
 
-/**
- * Created by c.sivasubramanian on 22/06/15.
- */
 public class MyApplication extends Application {
 
     private static MyApplication instance;

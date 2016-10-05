@@ -3,7 +3,6 @@ package com.myntra.networkanalyzer;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.TrafficStats;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -13,96 +12,47 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 
-
-/**
- * Created by c.sivasubramanian on 26/07/15.
- */
 public class DataUsageDetailFragment extends Fragment {
-
-    public String appNameValue;
-    public double receivedDataUsage;
-    public double totalDataUsage;
-    public double lastDataUsage;
-
-    public TextView appName;
-    public TextView dataUsageForPrevSession;
-    public TextView totalDataUsageofApp;
-//    public TextView totalDataUsageofMobile;
-
-    private static final double  MEGABYTE = 1024 * 1024;
-    public int uid;
-    public SharedPreferences sharedfile;
-    public static final String PREFS_NAME = "DataUsage";
-    public SharedPreferences.Editor editor;
-    DecimalFormat df;
-    public boolean compareFlag;
-    public DataUsageUtils dataUsageUtils;
+    private String appNameValue;
+    private double receivedDataUsage;
+    private TextView appName;
+    private TextView dataUsageForPrevSession;
+    private TextView totalDataUsageOfApp;
+    private int uid;
+    private SharedPreferences sharedFile;
+    private static final String PREFS_NAME = "DataUsage";
+    private DecimalFormat df;
+    private DataUsage dataUsage;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataUsageUtils = new DataUsageUtils();
-        sharedfile = getActivity().getSharedPreferences(PREFS_NAME, 0);
-        df= new DecimalFormat("#.##");
-        compareFlag = getArguments().getBoolean("compareFlag");
-        uid=getArguments().getInt("UID1");
-        appNameValue=getArguments().getString("appNameValue1");
-
-
+        dataUsage = new DataUsage(new TrafficStatsDelegate());
+        sharedFile = getActivity().getSharedPreferences(PREFS_NAME, 0);
+        df = new DecimalFormat("#.##");
+        uid = getArguments().getInt("UID1");
+        appNameValue = getArguments().getString("appNameValue1");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.datausagedetails1_fragment,container,false);
+        View rootView = inflater.inflate(R.layout.datausagedetails1_fragment, container, false);
         appName = (TextView) rootView.findViewById(R.id.textView12);
-        dataUsageForPrevSession = (TextView)rootView.findViewById(R.id.textView13);
-        totalDataUsageofApp = (TextView)rootView.findViewById(R.id.textView14);
-//        totalDataUsageofMobile = (TextView)rootView.findViewById(R.id.textView15);
+        dataUsageForPrevSession = (TextView) rootView.findViewById(R.id.textView13);
+        totalDataUsageOfApp = (TextView) rootView.findViewById(R.id.textView14);
         return rootView;
-    }
-
-    public void setAppName(String appName)
-    {
-        this.appName.setText(appName);
-    }
-
-    public void setDataUsageForPrevSession(String dataUsageForPrevSession)
-    {
-        this.dataUsageForPrevSession.setText(dataUsageForPrevSession);
-    }
-
-    public void setTotalDataUsageofApp(String totalDataUsageofApp)
-    {
-        this.totalDataUsageofApp.setText(totalDataUsageofApp);
-    }
-
-    public void setTotalDataUsageofMobile(String totalDataUsageofMobile)
-    {
-//        this.totalDataUsageofMobile.setText(totalDataUsageofMobile);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        try
-        {
-            lastDataUsage = getDataUsageFromSharedPerferences(appNameValue);
-        }
-        catch (Exception e){
-        }
-        receivedDataUsage = dataUsageUtils.getDataUsageForApp(uid);
-        totalDataUsage = dataUsageUtils.getTotalUsage();
-        totalDataUsageofApp.setText(df.format(receivedDataUsage));
-//        totalDataUsageofMobile.setText(df.format(totalDataUsage));
+        receivedDataUsage = dataUsage.computeAppUsage(uid);
+        totalDataUsageOfApp.setText(df.format(receivedDataUsage));
         appName.setText(appNameValue);
         try {
-//            editText4.setText(df.format(getDataUsageFromSharedPerferences(appName)));
-            dataUsageForPrevSession.setText(df.format(receivedDataUsage - (getDataUsageFromSharedPerferences(appNameValue))));
-        }
-        catch (NumberFormatException e)
-        {
-//            editText4.setText(df.format(0.0));
+            dataUsageForPrevSession.setText(df.format(receivedDataUsage - (getDataUsageFromSharedPreferences(appNameValue))));
+        } catch (NumberFormatException e) {
             dataUsageForPrevSession.setText(df.format(0.0));
         }
     }
@@ -110,40 +60,19 @@ public class DataUsageDetailFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        storeInLocalSharedPreferenes(appNameValue,receivedDataUsage);
+        storeInLocalSharedPreferences(appNameValue, receivedDataUsage);
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-
-    }
-
-
-    public void storeInLocalSharedPreferenes(String appName,double receivedDataUsage)
-    {
-        editor = sharedfile.edit();
+    private void storeInLocalSharedPreferences(String appName, double receivedDataUsage) {
+        SharedPreferences.Editor editor = sharedFile.edit();
         editor.putString(appName + "_LastAppDataUsage", String.valueOf(receivedDataUsage));
-        editor.commit();
+        editor.apply();
     }
 
-    public double getDataUsageFromSharedPerferences(String appName)
-    {
+    private double getDataUsageFromSharedPreferences(String appName) {
         double dataUsage;
-        sharedfile=getActivity().getPreferences(Context.MODE_PRIVATE);
-        dataUsage= Double.parseDouble(sharedfile.getString(appName + "_LastAppDataUsage", ""));
-        if(isNegative(dataUsage))
-        {
-            return 0.0;
-        }
-        else {
-            return dataUsage;
-        }
+        sharedFile = getActivity().getPreferences(Context.MODE_PRIVATE);
+        dataUsage = Double.parseDouble(sharedFile.getString(appName + "_LastAppDataUsage", ""));
+        return Math.max(0.0, dataUsage);
     }
-
-    public boolean isNegative(double d) {
-        return Double.compare(d, 0.0) < 0;
-    }
-
-
 }

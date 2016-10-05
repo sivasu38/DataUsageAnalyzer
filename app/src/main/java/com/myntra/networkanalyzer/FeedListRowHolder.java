@@ -6,14 +6,11 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by c.sivasubramanian on 16/06/15.
- */
 public class FeedListRowHolder extends RecyclerView.ViewHolder {
 
-    protected ImageView thumbnail;
-    protected TextView title;
-    protected CheckBox checkBox;
+    final ImageView thumbnail;
+    final TextView title;
+    final CheckBox checkBox;
 
     public FeedListRowHolder(View view)
     {
