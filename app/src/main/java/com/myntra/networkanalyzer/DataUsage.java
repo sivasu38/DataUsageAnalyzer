@@ -1,24 +1,50 @@
 package com.myntra.networkanalyzer;
 
-import static java.lang.Math.max;
+/**
+ * Created by c.sivasubramanian on 08/10/16.
+ */
+public class DataUsage {
 
-class DataUsage {
-    private static final double MEGABYTE = 1024 * 1024;
-    private final TrafficStatsDelegate stats;
+    private String appName;
+    private String date;
+    private Double dataUsed;
 
-    public DataUsage(TrafficStatsDelegate trafficStats) {
-        this.stats = trafficStats;
+
+    public DataUsage(String appName,String date,Double dataUsed)
+    {
+        this.appName=appName;
+        this.date=date;
+        this.dataUsed=dataUsed;
     }
 
-    public double computeAppUsage(int uid) {
-        return inMB(stats.getUidRxBytes(uid) + stats.getUidTxBytes(uid));
-    }
+//    public String getAppName()
+//    {
+//        return appName;
+//    }
+//
+//    public String getDate()
+//    {
+//        return date;
+//    }
+//
+//    public Double getDateUsed()
+//    {
+//        return dataUsed;
+//    }
+//
+//    public void setAppName(String appName)
+//    {
+//        this.appName=appName;
+//    }
+//
+//    public void setDate(String date)
+//    {
+//        this.date=date;
+//    }
+//
+//    public void setDataUsed(Double dataUsed)
+//    {
+//        this.dataUsed=dataUsed;
+//    }
 
-    public double computeTotalUsage() {
-        return inMB(stats.getTotalRxBytes() + stats.getTotalTxBytes());
-    }
-
-    private double inMB(double dataBytes) {
-        return max(0.0, dataBytes / MEGABYTE);
-    }
 }

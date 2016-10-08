@@ -27,6 +27,9 @@
             android:name=".DateUsageDetailActivity"
             android:label="@string/title_third_activity">
         </activity>
+
+        <receiver android:name=".AlarmReceiver"></receiver>
+
     </application>
 
 </manifest>

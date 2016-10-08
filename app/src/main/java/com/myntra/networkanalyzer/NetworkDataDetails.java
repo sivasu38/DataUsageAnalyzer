@@ -24,12 +24,12 @@ public class NetworkDataDetails extends ActionBarActivity {
     private String appName;
     private double receivedDataUsage;
     private DecimalFormat df;
-    private DataUsage dataUsage;
+    private DataUsageUtils dataUsageUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataUsage = new DataUsage(new TrafficStatsDelegate());
+        dataUsageUtils = new DataUsageUtils(new TrafficStatsDelegate());
         setContentView(R.layout.activity_network_data_details);
         editText1 = (EditText) findViewById(R.id.editText);
         editText2 = (EditText) findViewById(R.id.editText2);
@@ -66,8 +66,8 @@ public class NetworkDataDetails extends ActionBarActivity {
         super.onResume();
         int uid = (int) bundle.get("UID");
         appName = bundle.getString("apppName");
-        receivedDataUsage = dataUsage.computeAppUsage(uid);
-        double totalDataUsage = dataUsage.computeTotalUsage();
+        receivedDataUsage = dataUsageUtils.computeAppUsage(uid);
+        double totalDataUsage = dataUsageUtils.computeTotalUsage();
         editText1.setText(df.format(receivedDataUsage));
         editText2.setText(df.format(totalDataUsage));
         editText3.setText(appName);

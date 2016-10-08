@@ -36,6 +36,8 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
     private static int count = 0;
     private static Intent intent;
     private ProgressBar progressBar;
+    private DBHelper dbHelper;
+    private AlarmUtils alarmUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,10 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
             public void afterTextChanged(Editable editable) {
             }
         });
+        dbHelper = new DBHelper(this);
+        alarmUtils = new AlarmUtils(this);
+        alarmUtils.registerAlarmReceiver();
+        alarmUtils.startAlarm();
     }
 
     @Override

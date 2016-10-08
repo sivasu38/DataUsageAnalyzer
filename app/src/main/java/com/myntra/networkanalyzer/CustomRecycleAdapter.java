@@ -40,7 +40,7 @@ class CustomRecycleAdapter extends RecyclerView.Adapter<FeedListRowHolder> imple
 
     @Override
     public void onBindViewHolder(final FeedListRowHolder holder, final int position) {
-        if (packageNames.size() == 0 || packageNames != null) {
+        if (packageNames.size() == 0 || packageNames == null) {
             Toast.makeText(context, "No Search Results Found...", Toast.LENGTH_LONG).show();
         }
         holder.thumbnail.setImageDrawable(packageNames.get(position).getDrawable());

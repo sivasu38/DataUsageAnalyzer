@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
 public class DataUsageDetailFragment extends Fragment {
     private String appNameValue;
@@ -22,16 +23,18 @@ public class DataUsageDetailFragment extends Fragment {
     private SharedPreferences sharedFile;
     private static final String PREFS_NAME = "DataUsage";
     private DecimalFormat df;
-    private DataUsage dataUsage;
+    private DataUsageUtils dataUsageUtils;
+    private DBHelper dbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataUsage = new DataUsage(new TrafficStatsDelegate());
+        dataUsageUtils = new DataUsageUtils(new TrafficStatsDelegate());
         sharedFile = getActivity().getSharedPreferences(PREFS_NAME, 0);
         df = new DecimalFormat("#.##");
         uid = getArguments().getInt("UID1");
         appNameValue = getArguments().getString("appNameValue1");
+        dbHelper= new DBHelper(getActivity());
     }
 
     @Nullable
@@ -47,14 +50,16 @@ public class DataUsageDetailFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        receivedDataUsage = dataUsage.computeAppUsage(uid);
+        receivedDataUsage = dataUsageUtils.computeAppUsage(uid);
         totalDataUsageOfApp.setText(df.format(receivedDataUsage));
         appName.setText(appNameValue);
+        HashMap<String,Object> inputdata = dataUsageUtils.setdatainMap(appNameValue,receivedDataUsage);
         try {
             dataUsageForPrevSession.setText(df.format(receivedDataUsage - (getDataUsageFromSharedPreferences(appNameValue))));
         } catch (NumberFormatException e) {
             dataUsageForPrevSession.setText(df.format(0.0));
         }
+        new AsyncDBHelper("pumpin",dbHelper,inputdata).execute();
     }
 
     @Override

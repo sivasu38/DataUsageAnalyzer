@@ -15,7 +15,7 @@ public class DataUsageTest {
     private final double txBytes;
     private final double expectedResult;
     private final TrafficStatsDelegate trafficStats = mock(TrafficStatsDelegate.class);
-    private final DataUsage dataUsage = new DataUsage(trafficStats);
+    private final DataUsageUtils dataUsage = new DataUsageUtils(trafficStats);
 
     @Parameterized.Parameters
     public static Iterable<Object[]> data() {
