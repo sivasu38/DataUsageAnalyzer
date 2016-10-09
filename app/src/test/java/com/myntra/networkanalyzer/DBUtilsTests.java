@@ -41,51 +41,44 @@ public class DBUtilsTests {
 
     @Test
     public void BDbInsertionTest(){
-       dbHelper.insertDataUsageDetail("SampleApp1","08-10",20.15);
-       dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
        Assert.assertEquals("The insert operation not happening properly",2,dbHelper.getAllRecords().size());
     }
 
     @Test
     public void CDbDeletionTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1","08-10",20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2","09-10",40.15);
+        setDataInDB();
         dbHelper.deleteAllContents();
         Assert.assertEquals("The delete operation not happening properly", 0, dbHelper.getAllRecords().size());
     }
 
     @Test
     public void DDbCheckForValidAppNameTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         Assert.assertTrue(dbHelper.checkForApp("SampleApp2"));
     }
 
     @Test
     public void DDbCheckForNullAppNameTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         Assert.assertEquals(false, dbHelper.checkForApp(null));
     }
 
     @Test
     public void DDbCheckForEmptyAppNameTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         Assert.assertEquals(false, dbHelper.checkForApp(""));
     }
 
     @Test
     public void DDbCheckForBlankAppNameTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         Assert.assertEquals(false, dbHelper.checkForApp("    "));
     }
 
     @Test
     public void updateDatausedFieldTests(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         dbHelper.updateDateUsageDetail("SampleApp1", "08-10", 30.00);
         DataUsage dataUsage =dbHelper.getAllRecords().get(0);
         Assert.assertEquals(3.00,dataUsage.getDateUsed());
@@ -93,12 +86,17 @@ public class DBUtilsTests {
 
     @Test
     public void fetchRecordsTest(){
-        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
-        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+        setDataInDB();
         ArrayList<DataUsage> list = dbHelper.getAllRecords();
         Assert.assertEquals("SampleApp1",list.get(0).getAppName());
         Assert.assertEquals("SampleApp2",list.get(1).getAppName());
     }
 
+
+    public void setDataInDB()
+    {
+        dbHelper.insertDataUsageDetail("SampleApp1", "08-10", 20.15);
+        dbHelper.insertDataUsageDetail("SampleApp2", "09-10", 40.15);
+    }
 
 }
