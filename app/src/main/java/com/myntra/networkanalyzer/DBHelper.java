@@ -65,15 +65,19 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public boolean checkForApp(String appName)
     {
-        Cursor result = getCursorDetails(appName);
-        return result.getCount()>0;
+        boolean flag = false;
+        if(appName!=null) {
+            Cursor result = getCursorDetails(appName);
+            return result.getCount() > 0;
+        }
+        return flag;
     }
 
     private Cursor getCursorDetails(String appName)
     {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor result = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE " +
-                ID + "=?", new String[]{appName});
+                APPNAME + "=?", new String[]{appName});
         return result;
     }
 

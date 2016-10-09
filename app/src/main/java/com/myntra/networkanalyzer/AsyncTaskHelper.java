@@ -7,14 +7,18 @@ import java.util.ArrayList;
 
 class AsyncTaskHelper extends AsyncTask<Void, Void, ArrayList<PInfo>> {
 
-    private final String keyword;
-    private final IRenderViewListener renderView;
+    private String keyword;
+    private IRenderViewListener renderView;
     private ArrayList<PInfo> res;
-    private final PackageManager pm;
+    private PackageManager pm;
 
-    public AsyncTaskHelper(String keyword,PackageManager pm,IRenderViewListener renderView)
+    public AsyncTaskHelper()
     {
         super();
+    }
+
+    public void setInputs(String keyword,PackageManager pm,IRenderViewListener renderView)
+    {
         this.keyword=keyword;
         this.pm=pm;
         this.renderView=renderView;

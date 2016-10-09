@@ -17,20 +17,20 @@ public class DataUsage {
         this.dataUsed=dataUsed;
     }
 
-//    public String getAppName()
-//    {
-//        return appName;
-//    }
-//
-//    public String getDate()
-//    {
-//        return date;
-//    }
-//
-//    public Double getDateUsed()
-//    {
-//        return dataUsed;
-//    }
+    public String getAppName()
+    {
+        return appName;
+    }
+
+    public String getDate()
+    {
+        return date;
+    }
+
+    public Double getDateUsed()
+    {
+        return dataUsed;
+    }
 //
 //    public void setAppName(String appName)
 //    {

@@ -1,9 +1,11 @@
 package com.myntra.networkanalyzer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -27,7 +29,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity implements IClickListener, IRenderViewListener, View.OnClickListener, ICheckedListener {
     private RecyclerView recyclerView;
     private EditText searchtext;
-    private final ArrayList<PInfo> res = new ArrayList<>();
+    private ArrayList<PInfo> res;
     private CustomRecycleAdapter adapter;
     private int UID;
     private PackageManager pm;
@@ -38,6 +40,8 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
     private ProgressBar progressBar;
     private DBHelper dbHelper;
     private AlarmUtils alarmUtils;
+    private AsyncTaskHelper taskHelper;
+    private AdapterHelper adapterHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +55,12 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
         pm = this.getPackageManager();
         searchtext.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
-        new AsyncTaskHelper("INSTALLEDPACKAGES", pm, this).execute();
+//        taskHelper=new AsyncTaskHelper();
+//        taskHelper.setInputs("INSTALLEDPACKAGES",pm,this);
+//        taskHelper.execute();
+        adapterHelper = new AdapterHelper();
+        res = adapterHelper.getInstalledApps(false, pm);
+        this.renderRecyclerView(pm);
         compareToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -79,9 +88,8 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
             }
         });
         dbHelper = new DBHelper(this);
-        alarmUtils = new AlarmUtils(this);
-        alarmUtils.registerAlarmReceiver();
-        alarmUtils.startAlarm();
+        alarmUtils = new AlarmUtils();
+        alarmUtils.setupAlarm(this);
     }
 
     @Override
@@ -215,3 +223,4 @@ class appNameComparator implements Comparator<PInfo> {
             return 0;
     }
 }
+

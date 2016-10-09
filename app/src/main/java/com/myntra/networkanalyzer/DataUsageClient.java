@@ -2,9 +2,8 @@ package com.myntra.networkanalyzer;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.http.Body;
-import retrofit2.http.POST;
+import retrofit.http.Body;
+import retrofit.http.POST;
 
 /**
  * Created by c.sivasubramanian on 08/10/16.
@@ -12,5 +11,5 @@ import retrofit2.http.POST;
 public interface DataUsageClient {
 
     @POST("/storeHistoryData")
-    Call<ArrayList<DataUsage>> postHistoricalDataUsage(@Body ArrayList<DataUsage> dataUsage);
+    void postHistoricalDataUsage(@Body ArrayList<DataUsage> dataUsage,retrofit.Callback<ArrayList<DataUsage>> cb);
 }

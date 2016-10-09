@@ -8,6 +8,14 @@ class PInfo {
     private Drawable drawable;
     private boolean isSelected;
 
+    public PInfo(String appName,String pName,Drawable drawable, boolean isSelected)
+    {
+        this.appName=appName;
+        this.pName=pName;
+        this.drawable=drawable;
+        this.isSelected=isSelected;
+    }
+
     public PInfo(boolean isSelected) {
         this.isSelected = isSelected;
     }

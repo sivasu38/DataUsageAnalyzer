@@ -1,8 +1,10 @@
 package com.myntra.networkanalyzer;
 
-import okhttp3.OkHttpClient;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import com.squareup.okhttp.OkHttpClient;
+
+import retrofit.RestAdapter;
+import retrofit.client.OkClient;
+
 
 /**
  * Created by c.sivasubramanian on 08/10/16.
@@ -11,15 +13,13 @@ public class RetrofitService {
 
     public static final String API_BASE_URL = "http://localhost:4000/";
 
-    private static OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-
-    private static Retrofit.Builder builder = new Retrofit.Builder()
-                    .baseUrl(API_BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create());
+    private static RestAdapter.Builder builder = new RestAdapter.Builder()
+            .setEndpoint(API_BASE_URL)
+            .setClient(new OkClient(new OkHttpClient()));
 
     public static <S> S createService(Class<S> serviceClass) {
-        Retrofit retrofit = builder.client(httpClient.build()).build();
-        return retrofit.create(serviceClass);
+        RestAdapter adapter = builder.build();
+        return adapter.create(serviceClass);
     }
 
 }
