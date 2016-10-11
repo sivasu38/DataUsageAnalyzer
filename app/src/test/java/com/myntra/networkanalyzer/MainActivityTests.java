@@ -50,7 +50,7 @@ public class MainActivityTests {
         mockcontext = Mockito.mock(Context.class);
         mockedAdapterHelper = Mockito.mock(AdapterHelper.class);
         ArrayList<PInfo> list = getSampleList();
-//        Mockito.when(mockedAdapterHelper.getInstalledApps(false,mockcontext.getPackageManager())).thenReturn(list);
+        Mockito.when(mockedAdapterHelper.getInstalledApps(false,mockcontext.getPackageManager())).thenReturn(list);
 //        mainActivity = Robolectric.buildActivity( MainActivity.class )
 //                .create()
 //                .resume()
@@ -77,7 +77,7 @@ public class MainActivityTests {
     public void recyclerViewAdapterCountTest()
     {
         pm = mainActivity.getPackageManager();
-        ArrayList<PInfo> packageNames= mainActivity.getInstalledApps(false, pm);
+        ArrayList<PInfo> packageNames= mockedAdapterHelper.getInstalledApps(false, pm);
         customRecycleAdapter = new CustomRecycleAdapter(mainActivity,packageNames);
         Assert.assertEquals(packageNames.size(),customRecycleAdapter.getItemCount());
     }

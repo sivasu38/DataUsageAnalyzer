@@ -8,5 +8,4 @@ interface IRenderViewListener {
 
     void renderRecyclerView(PackageManager pm);
 
-    ArrayList<PInfo> getInstalledApps(boolean getSysPackages, PackageManager pm);
 }

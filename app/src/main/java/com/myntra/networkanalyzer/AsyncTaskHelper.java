@@ -29,7 +29,7 @@ class AsyncTaskHelper extends AsyncTask<Void, Void, ArrayList<PInfo>> {
         switch (keyword)
         {
             case "INSTALLEDPACKAGES" :
-                res = renderView.getInstalledApps(false,pm);
+//                res = renderView.getInstalledApps(false,pm);
                 break;
         }
          return res;

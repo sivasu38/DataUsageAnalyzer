@@ -118,23 +118,6 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
         return super.onOptionsItemSelected(item);
     }
 
-    public ArrayList<PInfo> getInstalledApps(boolean getSysPackages, PackageManager pm) {
-        List<ApplicationInfo> packs = pm.getInstalledApplications(0);
-        for (int i = 0; i < packs.size(); i++) {
-            ApplicationInfo p = packs.get(i);
-            if ((!getSysPackages) && (p.packageName == null)) {
-                continue;
-            }
-            PInfo newInfo = new PInfo(false);
-            newInfo.setAppName(p.loadLabel(getPackageManager()).toString());
-            newInfo.setpName(p.packageName);
-            newInfo.setDrawable(p.loadIcon(getPackageManager()));
-            newInfo.setSelected(false);
-            res.add(newInfo);
-        }
-        Collections.sort(res, new appNameComparator());
-        return res;
-    }
 
     @Override
     public void onClickRecyclerItem(FeedListRowHolder holder, List<PInfo> packageNames) {
