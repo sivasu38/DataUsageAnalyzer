@@ -50,7 +50,7 @@ public class MainActivityTests {
         mockcontext = Mockito.mock(Context.class);
         mockedAdapterHelper = Mockito.mock(AdapterHelper.class);
         ArrayList<PInfo> list = getSampleList();
-        Mockito.when(mockedAdapterHelper.getInstalledApps(false,mockcontext.getPackageManager())).thenReturn(list);
+//        Mockito.when(mockedAdapterHelper.getInstalledApps(false,mockcontext.getPackageManager())).thenReturn(list);
 //        mainActivity = Robolectric.buildActivity( MainActivity.class )
 //                .create()
 //                .resume()
