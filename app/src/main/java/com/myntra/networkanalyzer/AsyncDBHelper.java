@@ -1,9 +1,7 @@
 package com.myntra.networkanalyzer;
 
-import android.database.Cursor;
-import android.os.AsyncTask;
 
-import java.util.Date;
+import android.os.AsyncTask;
 import java.util.HashMap;
 
 /**

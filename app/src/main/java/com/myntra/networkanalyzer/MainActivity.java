@@ -40,7 +40,6 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
     private ProgressBar progressBar;
     private DBHelper dbHelper;
     private AlarmUtils alarmUtils;
-    private AsyncTaskHelper taskHelper;
     private AdapterHelper adapterHelper;
 
     @Override
@@ -55,9 +54,6 @@ public class MainActivity extends ActionBarActivity implements IClickListener, I
         pm = this.getPackageManager();
         searchtext.setVisibility(View.GONE);
         progressBar.setVisibility(View.VISIBLE);
-//        taskHelper=new AsyncTaskHelper();
-//        taskHelper.setInputs("INSTALLEDPACKAGES",pm,this);
-//        taskHelper.execute();
         adapterHelper = new AdapterHelper();
         res = adapterHelper.getInstalledApps(false, pm);
         this.renderRecyclerView(pm);

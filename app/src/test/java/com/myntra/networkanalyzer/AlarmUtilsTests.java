@@ -1,10 +1,7 @@
 package com.myntra.networkanalyzer;
 
 import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.os.SystemClock;
 
 import junit.framework.Assert;
 
@@ -16,7 +13,6 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.Shadows;
 import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowAlarmManager;
-import org.robolectric.shadows.ShadowApplication;
 
 /**
  * Created by c.sivasubramanian on 09/10/16.
@@ -26,15 +22,14 @@ import org.robolectric.shadows.ShadowApplication;
 @Config(constants = BuildConfig.class)
 public class AlarmUtilsTests {
 
-    Context context;
-    ShadowAlarmManager shadowAlarmManager;
-    AlarmUtils utils;
+    private Context context;
+    private ShadowAlarmManager shadowAlarmManager;
+    private final AlarmUtils utils = new AlarmUtils();
 
     @Before
     public void setup()
     {
         context = RuntimeEnvironment.application.getApplicationContext();
-        utils = new AlarmUtils();
         AlarmManager alarmManager = (AlarmManager) RuntimeEnvironment.application.getSystemService(Context.ALARM_SERVICE);
         shadowAlarmManager = Shadows.shadowOf(alarmManager);
     }

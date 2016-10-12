@@ -17,8 +17,6 @@ import java.util.List;
  */
 public class AdapterHelper {
 
-    private CustomRecycleAdapter adapter;
-
     public ArrayList<PInfo> getInstalledApps(boolean getSysPackages, PackageManager pm) {
         ArrayList<PInfo> list = new ArrayList<>();
         List<ApplicationInfo> packs = pm.getInstalledApplications(0);

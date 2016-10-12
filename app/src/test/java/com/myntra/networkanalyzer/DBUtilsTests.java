@@ -30,53 +30,47 @@ public class DBUtilsTests {
     {
         context = Shadows.shadowOf(RuntimeEnvironment.application);
         dbHelper = new DBHelper(context.getApplicationContext());
+        setDataInDB();
     }
 
     @Test
-    public void ADbCreationTest() {
+    public void DbCreationTest() {
         Assert.assertEquals(DATABASE_NAME, dbHelper.getDatabaseName());
     }
 
     @Test
-    public void BDbInsertionTest(){
-        setDataInDB();
+    public void DbInsertionTest(){
        Assert.assertEquals("The insert operation not happening properly",2,dbHelper.getAllRecords().size());
     }
 
     @Test
-    public void CDbDeletionTest(){
-        setDataInDB();
+    public void DbDeletionTest(){
         dbHelper.deleteAllContents();
         Assert.assertEquals("The delete operation not happening properly", 0, dbHelper.getAllRecords().size());
     }
 
     @Test
-    public void DDbCheckForValidAppNameTest(){
-        setDataInDB();
+    public void DbCheckForValidAppNameTest(){
         Assert.assertTrue(dbHelper.checkForApp("SampleApp2"));
     }
 
     @Test
-    public void DDbCheckForNullAppNameTest(){
-        setDataInDB();
+    public void DbCheckForNullAppNameTest(){
         Assert.assertEquals(false, dbHelper.checkForApp(null));
     }
 
     @Test
-    public void DDbCheckForEmptyAppNameTest(){
-        setDataInDB();
+    public void DbCheckForEmptyAppNameTest(){
         Assert.assertEquals(false, dbHelper.checkForApp(""));
     }
 
     @Test
-    public void DDbCheckForBlankAppNameTest(){
-        setDataInDB();
+    public void DbCheckForBlankAppNameTest(){
         Assert.assertEquals(false, dbHelper.checkForApp("    "));
     }
 
     @Test
     public void updateDatausedFieldTests(){
-        setDataInDB();
         dbHelper.updateDateUsageDetail("SampleApp1", "08-10", 30.00);
         DataUsage dataUsage =dbHelper.getAllRecords().get(0);
         Assert.assertEquals(3.00,dataUsage.getDateUsed());
@@ -84,7 +78,6 @@ public class DBUtilsTests {
 
     @Test
     public void fetchRecordsTest(){
-        setDataInDB();
         ArrayList<DataUsage> list = dbHelper.getAllRecords();
         Assert.assertEquals("SampleApp1",list.get(0).getAppName());
         Assert.assertEquals("SampleApp2",list.get(1).getAppName());

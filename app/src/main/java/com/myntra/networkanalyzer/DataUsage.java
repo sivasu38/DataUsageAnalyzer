@@ -31,20 +31,5 @@ public class DataUsage {
     {
         return dataUsed;
     }
-//
-//    public void setAppName(String appName)
-//    {
-//        this.appName=appName;
-//    }
-//
-//    public void setDate(String date)
-//    {
-//        this.date=date;
-//    }
-//
-//    public void setDataUsed(Double dataUsed)
-//    {
-//        this.dataUsed=dataUsed;
-//    }
 
 }
